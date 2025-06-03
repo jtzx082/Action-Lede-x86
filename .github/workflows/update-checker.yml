@@ -13,8 +13,8 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt #检查源码地址
-  REPO_BRANCH: openwrt-24.10
+  REPO_URL: https://github.com/coolsnowwolf/lede #检查源码地址
+  REPO_BRANCH: master
 
 on:
   workflow_dispatch:
