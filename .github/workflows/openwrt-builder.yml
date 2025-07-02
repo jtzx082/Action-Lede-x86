@@ -112,7 +112,6 @@ jobs:
           find dl -size -1024c -exec rm -f {} \;
 
       - name: Clone nikki repo
-        id: package
         run: |
           cd openwrt
           git clone https://github.com/nikkinikki-org/OpenWrt-nikki package/nikki
