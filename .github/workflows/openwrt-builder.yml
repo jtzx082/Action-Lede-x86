@@ -111,11 +111,6 @@ jobs:
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
 
-      - name: Clone nikki repo
-        run: |
-          cd openwrt
-          git clone https://github.com/nikkinikki-org/OpenWrt-nikki package/nikki
-
       - name: Compile the firmware
         id: compile
         run: |
