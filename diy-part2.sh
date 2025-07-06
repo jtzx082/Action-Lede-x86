@@ -20,4 +20,4 @@
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 # 修复erofs编译依赖
-sed -i 's/DEPENDS:= /DEPENDS:= +liblz4 +libuuid /' package/utils/erofs-utils/Makefile
+# sed -i 's/DEPENDS:= /DEPENDS:= +liblz4 +libuuid /' package/utils/erofs-utils/Makefile
