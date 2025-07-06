@@ -17,7 +17,7 @@
 sed -i 's/DEPENDS:= /DEPENDS:= +liblz4 +libuuid /' package/utils/erofs-utils/Makefile
 
 # 若仍失败，回退到稳定版本
-echo "src-git erofs https://github.com/openwrt/openwrt.git^b95b038" >> feeds.conf.default
+echo "src-git erofs https://github.com/openwrt/openwrt.git" >> feeds.conf.default
 
 # Add a feed source
 # echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
