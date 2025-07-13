@@ -36,3 +36,4 @@ echo 'src-git poweroffdevice https://github.com/sirpdboy/luci-app-poweroffdevice
 echo 'src-git store https://github.com/linkease/istore.git' >>feeds.conf.default
 echo 'src-git linkease_nas https://github.com/linkease/nas-packages.git' >>feeds.conf.default
 echo 'src-git linkease_nas_luci https://github.com/linkease/nas-packages-luci.git' >>feeds.conf.default
+echo 'src-git argon_config https://github.com/jerrykuku/luci-app-argon-config.git' >>feeds.conf.default
