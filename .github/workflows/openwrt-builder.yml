@@ -1,8 +1,8 @@
 #
-# https://github.com/P3TERX/Actions-OpenWrt
+# https://github.com/P3TERX/动作-OpenWrt
 #
 # File: .github/workflows/openwrt-bulder.yml
-# Description: Build OpenWrt using GitHub Actions
+# Description: Build OpenWrt using GitHub 动作
 #
 # Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
 #
@@ -43,7 +43,7 @@ jobs:
       REPO_URL: https://github.com/coolsnowwolf/lede
       REPO_BRANCH: master
       FEEDS_CONF: feeds.conf.default
-      CONFIG_FILE: 02082305.config
+      CONFIG_FILE: .config
       DIY_P1_SH: diy-part1.sh
       DIY_P2_SH: diy-part2.sh
       UPLOAD_BIN_DIR: false
