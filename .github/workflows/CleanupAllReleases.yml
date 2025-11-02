@@ -1,0 +1,62 @@
+name: Cleanup All Releases and Tags
+
+on:
+#  schedule:
+#    - cron: '0 18 * * *'  # 18:00 UTC daily
+  workflow_dispatch:         # 仅支持手动触发
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete all releases
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // 删除所有 Releases
+            const releases = await github.paginate(
+              github.rest.repos.listReleases,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 100,
+              }
+            );
+
+            for (const release of releases) {
+              console.log(`Deleting release ${release.id} (${release.tag_name})`);
+              await github.rest.repos.deleteRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                release_id: release.id,
+              });
+            }
+
+      - name: Delete all tags
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // 删除所有 Git 标签
+            const tags = await github.paginate(
+              github.rest.repos.listTags,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 100,
+              }
+            );
+
+            for (const tag of tags) {
+              console.log(`Deleting tag ${tag.name}`);
+              try {
+                await github.rest.git.deleteRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `tags/${tag.name}`,
+                });
+              } catch (err) {
+                console.log(`Failed to delete tag ${tag.name}: ${err.message}`);
+              }
+            }
