@@ -1,2 +1,0 @@
-# Overlay
-cp -r /overlay/* /mnt/sda3
